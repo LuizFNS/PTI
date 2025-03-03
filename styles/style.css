@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Variáveis Globais */
+:root {
+    --fonte-padrao: 'Press Start 2P', cursive;
+    --cor-primaria: #ff5733;
+    --cor-secundaria: #222;
+    --cor-texto: #fff;
+    --cor-fundo: #000;
+    --cor-menu-fundo: rgba(0, 0, 0, 0.658);
+    --cor-hover: #007bff;
+    --sombra: 0 0 10px rgba(0, 0, 0, 0.8), 
+             0 0 20px rgba(0, 0, 0, 0.5), 
+             inset 0 0 30px rgba(0, 0, 0, 0.6);
+    --bg-color-divs: #00000080;
+    --border-color-divs: #f534cbb9;
+    --menu-width: 250px;
+    --menu-border: 2px solid var(--cor-texto);
+    --menu-padding: 20px;
+    --menu-gap: 10px;
+    --border-radius: 10px;
+    --footer-bg: #333;
+    --footer-color: #ccc;
+}
+
+/* Reset de estilos */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Corpo da página */
+body {
+    font-family: var(--fonte-padrao);
+    line-height: 1.5;
+    color: var(--cor-texto);
+    overflow: hidden;
+    background-color: var(--cor-fundo);
+}
+li{
+    list-style-type: none;
+}
+
+/* Layout principal */
+#app {
+    display: flex;
+    height: 100vh;
+}
+
+/* Menu lateral */
+#menu {
+    width: var(--menu-width);
+    background-color: var(--cor-menu-fundo);
+    padding: var(--menu-padding);
+    border-left: var(--menu-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--menu-gap);
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+}
+
+#menu a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+/* Efeito de underline quando o link corresponder à seção */
+#sobre:target ~ #menu a[href="#sobre"] {
+    text-decoration: underline;
+}
+#sobre:target ~ #menu a[href="#jogos"] {
+    text-decoration: underline;
+}
+
+#menu a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+#content {
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    height: 100vh;
+    flex: 1;
+    margin-right: var(--menu-width);
+    background-image: url('https://i.imgur.com/c0QNz9c.png');
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE e Edge */
+}
+
+#content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+/* Seções */
+section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#jogos {
+    background-image: url('https://i.postimg.cc/jSzPqJvL/image-fx-4.png');
+}
+
+#equipe {
+    background-image: url('https://i.postimg.cc/vT8rg8q5/image-fx-1.png');
+    justify-content: space-evenly;
+}
+
+#sobre {
+    background-color: var(--bg-color-divs);
+    background-image: url('https://i.postimg.cc/pV8QT7s0/image-fx-2.png');
+    box-shadow: var(--sombra);
+}
+
+#contato {
+    background-image: url('https://i.postimg.cc/TP0dCR2k/image-fx-3.png');
+}
+#members{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    max-width:min-content;
+    align-items: stretch;
+    gap: 10px;
+}
+
+#members img {
+    width: 200px;
+    height: 200px;
+    align-items: stretch;
+}
+
+
+
+.details {
+    background-color: var(--bg-color-divs);
+    padding: 20px;
+    border-color: var(--border-color-divs);
+    border-style: solid;
+    border-width: 4px;
+    border-radius: var(--border-radius);
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.member-frame {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+    border-radius: 50%;
+    border: var(--border-color-divs) 4px solid;
+    align-items: stretch;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--footer-color);
+    padding: 20px;
+    background-color: var(--footer-bg);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+/* Formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    #menu {
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        border-left: none;
+        border-bottom: var(--menu-border);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #menu a {
+        font-size: 0.7rem;
+    }
+
+    #content {
+        margin-right: 0;
+        margin-top: 60px;
+    }
+    #members {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        max-width:min-content;
+        align-items: stretch;
+        overflow: auto;
+        
+    }
+    #members img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    footer {
+        width: 100%;
+    }
+}
