@@ -9,12 +9,11 @@
     --cor-fundo: #000;
     --cor-menu-fundo: rgba(0, 0, 0, 0.658);
     --cor-hover: #007bff;
-    --sombra: 0 0 10px rgba(0, 0, 0, 0.8), 
-             0 0 20px rgba(0, 0, 0, 0.5), 
+    --sombra: 0 0 10px rgba(0, 0, 0, 0.8),
+             0 0 20px rgba(0, 0, 0, 0.5),
              inset 0 0 30px rgba(0, 0, 0, 0.6);
-    --bg-color-divs: #00000080;
+    --bg-color-divs: #000000af;
     --border-color-divs: #f534cbb9;
-    --menu-width: 250px;
     --menu-border: 2px solid var(--cor-texto);
     --menu-padding: 20px;
     --menu-gap: 10px;
@@ -42,7 +41,8 @@ body {
     overflow: hidden;
     background-color: var(--cor-fundo);
 }
-li{
+
+li {
     list-style-type: none;
 }
 
@@ -52,20 +52,21 @@ li{
     height: 100vh;
 }
 
-/* Menu lateral */
+/* Menu superior */
 #menu {
-    width: var(--menu-width);
-    background-color: var(--cor-menu-fundo);
-    padding: var(--menu-padding);
-    border-left: var(--menu-border);
+    width: 100%;
+    height: 10vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--menu-gap);
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    background-color: var(--cor-menu-fundo);
+    /* border-bottom: var(--menu-border); */
     position: fixed;
-    right: 0;
     top: 0;
-    height: 100vh;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 #menu a {
@@ -76,15 +77,7 @@ li{
     transition: background-color 0.3s;
 }
 
-/* Efeito de underline quando o link corresponder à seção */
-#sobre:target ~ #menu a[href="#sobre"] {
-    text-decoration: underline;
-}
-#sobre:target ~ #menu a[href="#jogos"] {
-    text-decoration: underline;
-}
-
-#menu a:hover {
+#menu a:hover, #menu a:focus {
     text-decoration: underline;
 }
 
@@ -96,14 +89,18 @@ li{
     overflow-y: auto;
     height: 100vh;
     flex: 1;
-    margin-right: var(--menu-width);
     background-image: url('https://i.imgur.com/c0QNz9c.png');
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE e Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-top: 10vh;
+    transition: transform 0.5s ease-in-out;
+    transition: filter 0.3s ease;
 }
-
+#content.blur {
+    filter: blur(5px);
+}
 #content::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+    display: none;
 }
 
 /* Seções */
@@ -119,67 +116,168 @@ section {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 20px;
+
 }
 
+
 #jogos {
-    background-image: url('https://i.postimg.cc/jSzPqJvL/image-fx-4.png');
+    background-image: url('https://i.postimg.cc/FsdFW9Rn/a3ad5c8750b718c11fec14619ac7d10f.jpg');
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+#games-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+}
+
+#games-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+#games-container::-webkit-scrollbar-thumb {
+    background-color: var(--cor-secundaria);
+    border-radius: 10px;
+}
+
+#games-container li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px; 
+    max-width: 30vw; 
+    text-align: center;
+    background: rgba(0, 0, 0, 0.74); 
+    padding: 15px;
+    border-radius: 10px;
+    white-space: normal;
+    
+}
+#games-container li:hover {
+    transform: scale(1.01);
+    transition: transform 0.3s;
+    box-shadow: var(--sombra);
+    border: 2px solid var(--cor-primaria);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.74);
+}
+
+#games-container img {
+    width: 100%; /* Garante que a imagem não ultrapasse os limites do card */
+    height: auto;
+    max-height: 50vh;
+    border-radius: 10px;
+    object-fit: cover
+}
+
+#games-container strong{
+    font-size: 1.1rem;
+    color: white;
+    margin-top: 5px;
+
+} 
+#games-container span {
+    display: block;
+    color: white;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    word-wrap: break-word; 
+    white-space: normal;
 }
 
 #equipe {
-    background-image: url('https://i.postimg.cc/vT8rg8q5/image-fx-1.png');
-    justify-content: space-evenly;
+    position: relative;
+    justify-content: center;
+    background-image: url('https://i.postimg.cc/gj3nn6g0/bg-equipe.png');
+    background-size: cover;
+    background-position: center;
+    color: white; /* Para o texto ficar visível */
 }
 
-#sobre {
-    background-color: var(--bg-color-divs);
-    background-image: url('https://i.postimg.cc/pV8QT7s0/image-fx-2.png');
-    box-shadow: var(--sombra);
-}
-
-#contato {
-    background-image: url('https://i.postimg.cc/TP0dCR2k/image-fx-3.png');
-}
-#members{
+#equipe::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.774); /* Preto com 50% de opacidade */
+    z-index: 1;
+}
+
+/* Garante que o conteúdo da seção fique acima do filtro */
+#equipe > * {
+    position: relative;
+    z-index: 2;
+}
+
+#equipe h2 {
+    margin-bottom: 25vh;
+}
+#equipe li strong {
+    color: var(--cor-primaria);
+}
+#members {
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    max-width:min-content;
-    align-items: stretch;
-    gap: 10px;
+    gap: 25px;
+    margin: 0 auto;
+    width: 350px;
 }
 
-#members img {
-    width: 200px;
-    height: 200px;
-    align-items: stretch;
+#final-container {
+    background-image: url('https://i.postimg.cc/02Jbbmdp/BAG3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-
-
+#contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 200px;
+}
 
 .details {
     background-color: var(--bg-color-divs);
     padding: 20px;
     border-color: var(--border-color-divs);
     border-style: solid;
-    border-width: 4px;
+    border-width: 1px;
     border-radius: var(--border-radius);
-    max-width: 300px;
-    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
 }
 
 .member-frame {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    width: 100%;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: var(--border-color-divs) 4px solid;
-    align-items: stretch;
+    border: 4px solid var(--border-color-divs);
 }
 
-/* Rodapé */
 footer {
     text-align: center;
     font-size: 0.7rem;
@@ -192,55 +290,35 @@ footer {
     left: 0;
 }
 
-/* Formulários */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-/* Estilos para dispositivos móveis */
 @media (max-width: 768px) {
-    #menu {
-        width: 100%;
-        height: 60px;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        border-left: none;
-        border-bottom: var(--menu-border);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-    }
-
     #menu a {
         font-size: 0.7rem;
     }
 
-    #content {
-        margin-right: 0;
-        margin-top: 60px;
-    }
-    #members {
-        flex-direction: row;
+    #games-container {
         flex-wrap: nowrap;
+        overflow-x: auto;
         justify-content: flex-start;
-        max-width:min-content;
-        align-items: stretch;
-        overflow: auto;
-        
     }
-    #members img {
+
+    #games-container li {
         width: 200px;
-        height: 200px;
     }
-    
-    footer {
-        width: 100%;
+    equipe {
+        overflow: auto;
+        scroll-behavior: smooth;
+    }
+    #equipe h2 {
+        margin-bottom: 25px;
+    }
+
+    #members {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-frame {
+        width: 120px;
+        height: 120px;
     }
 }

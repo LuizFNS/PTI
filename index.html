@@ -1,72 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seph Studio</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <div id="app">
-        <!-- Conteúdo Principal -->
         <main id="content">
-            <section id="sobre">
-                <div class="details">
-                    <h2>Sobre</h2>
-                    <p>Bem-vindo ao Seph Studio, onde criamos jogos indie únicos e envolventes.</p>
-                </div>
-            </section>
-
             <section id="jogos">
-                <div class="details">
-                    <h2>Jogos</h2>
-                    <ul>
-                        <li>Jogo 1 - Descrição breve.</li>
-                        <li>Jogo 2 - Descrição breve.</li>
-                    </ul>
-                </div>
+                <h2>Jogos</h2>
+                <ul id="games-container">
+                    <li>
+                        <img src="https://i.postimg.cc/SsY13kMF/boardgame1.png" alt="Whispers of the Wildwood">
+                        <strong>Whispers of the Wildwood</strong> <span>- Um jogo de estratégia onde jogadores exploram uma floresta encantada,
+                        desvendando segredos antigos e enfrentando desafios místicos.</span>
+                    </li>
+                    <li>
+                        <img src="https://i.postimg.cc/bvJB0QYv/boardgame2.png" alt="Chronicles of Avalon">
+                        <strong>Chronicles of Avalon</strong> <span>- Uma aventura épica baseada em cartas, onde heróis devem lutar contra forças do mal para restaurar a paz no reino de Avalon.</span>
+                    </li>
+                    <li>
+                        <img src="https://i.postimg.cc/XJRWznQt/boardgame3.png" alt="Cybernetic Rebellion">
+                        <strong>Cybernetic Rebellion</strong><span> - Um jogo de tabuleiro futurista onde jogadores assumem o papel de rebeldes
+                        lutando contra uma IA opressora para recuperar o controle do mundo.</span>
+                    </li>
+                </ul>
             </section>
 
             <section id="equipe">
-                
-                    <h2>Equipe</h2>
-                    <ul id="members">
-                    <li class="details">
-                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/198bc0cd-0b87-42e9-ba66-2980b7dc33fd/df0osnu-edd5441c-9773-4c00-8ead-8153072a623e.png/v1/fill/w_408,h_408,q_80,strp/pixel_art_avatar_by_azelleca_df0osnu-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDA4IiwicGF0aCI6IlwvZlwvMTk4YmMwY2QtMGI4Ny00MmU5LWJhNjYtMjk4MGI3ZGMzM2ZkXC9kZjBvc251LWVkZDU0NDFjLTk3NzMtNGMwMC04ZWFkLTgxNTMwNzJhNjIzZS5wbmciLCJ3aWR0aCI6Ijw9NDA4In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.geRm1WJAHLgRxXTvYyY-tD4oeyZ58a0T5aERTiDQbC8" class="member-frame">
-                        <span><br>Ana<br>Desenvolvedor</span>
+                <h2>Equipe</h2>
+                <ul id="members">
+                    <li>
+                        <img src="https://i.postimg.cc/8CwcvSdh/luiz-dev.png" class="member-frame" alt="Ana Souza">
+                        <span><br><strong>Luiz "Seph" Souza</strong><br>Dev</span>
                     </li>
-                    
-                    <li class="details"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/198bc0cd-0b87-42e9-ba66-2980b7dc33fd/df0osnu-edd5441c-9773-4c00-8ead-8153072a623e.png/v1/fill/w_408,h_408,q_80,strp/pixel_art_avatar_by_azelleca_df0osnu-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDA4IiwicGF0aCI6IlwvZlwvMTk4YmMwY2QtMGI4Ny00MmU5LWJhNjYtMjk4MGI3ZGMzM2ZkXC9kZjBvc251LWVkZDU0NDFjLTk3NzMtNGMwMC04ZWFkLTgxNTMwNzJhNjIzZS5wbmciLCJ3aWR0aCI6Ijw9NDA4In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.geRm1WJAHLgRxXTvYyY-tD4oeyZ58a0T5aERTiDQbC8" class="member-frame">
-                        <span><br>João<br>Dev</span></li>
-                    <li class="details"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/198bc0cd-0b87-42e9-ba66-2980b7dc33fd/df0osnu-edd5441c-9773-4c00-8ead-8153072a623e.png/v1/fill/w_408,h_408,q_80,strp/pixel_art_avatar_by_azelleca_df0osnu-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDA4IiwicGF0aCI6IlwvZlwvMTk4YmMwY2QtMGI4Ny00MmU5LWJhNjYtMjk4MGI3ZGMzM2ZkXC9kZjBvc251LWVkZDU0NDFjLTk3NzMtNGMwMC04ZWFkLTgxNTMwNzJhNjIzZS5wbmciLCJ3aWR0aCI6Ijw9NDA4In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.geRm1WJAHLgRxXTvYyY-tD4oeyZ58a0T5aERTiDQbC8" class="member-frame">
-                       <span><br>Maria<br>Artista</span></li>
-                    </ul>
+                    <li>
+                        <img src="https://i.postimg.cc/ncvDLNW1/joao-gamedsg.png" class="member-frame" alt="João Mendes">
+                        <span><br><strong>João Mendes</strong><br>Game Designer</span>
+                    </li>
+                    <li>
+                        <img src="https://i.postimg.cc/zfdWrWQZ/mandymo-designer.png" class="member-frame" alt="Maria Ribeiro">
+                        <span><br><strong>Mandymo</strong><br>Artista 2D/3D</span>
+                    </li>
+                </ul>
             </section>
 
-            <section id="contato">
-                <div class="details">
+            <div id="final-container">
+                <section id="sobre">
+                    <h2>Sobre</h2>
+                    <div class="details">
+                        <p>Bem-vindo ao Seph Studio, onde transformamos ideias em experiências inesquecíveis. Nossa missão é criar jogos indie envolventes e inovadores, combinando narrativa profunda, mecânicas cativantes e visuais impressionantes.</p>
+                        <br>
+                        <p>Se você é um jogador ávido, um entusiasta de jogos de tabuleiro ou um desenvolvedor em busca de parcerias, entre em contato conosco e junte-se à nossa jornada!</p>
+                    </div>
+                </section>
+                
+                <section id="contato">
                     <h2>Contato</h2>
-                    <form>
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" required>
-                        
-                        <label for="email">E-mail:</label>
-                        <input type="email" id="email" name="email" required>
-                        
-                        <label for="mensagem">Mensagem:</label>
-                        <textarea id="mensagem" name="mensagem" required></textarea>
-                        
-                        <button type="submit">Enviar</button>
-                    </form>
-                </div>
-            </section>
+                    <div class="details">
+                        <form>
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" required>
+
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="mensagem">Mensagem:</label>
+                            <textarea id="mensagem" name="mensagem" required></textarea>
+
+                            <button type="submit">Enviar</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
         </main>
 
-        <!-- Menu Lateral (agora à direita) -->
         <nav id="menu">
-            <a href="#sobre">Sobre</a>
             <a href="#jogos">Jogos</a>
             <a href="#equipe">Equipe</a>
+            <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
         </nav>
     </div>
@@ -75,4 +91,5 @@
         <p>&copy; 2025 Seph Studio - Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
